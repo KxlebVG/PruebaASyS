@@ -1,0 +1,231 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Secci&oacute;n 5</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-05-23"><meta name="DC.source" content="Problema_5.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Secci&oacute;n 5</h1><!--introduction--><p>1.11-3 Define</p><p><img src="Problema_5_eq03757110319407317156.png" alt="$$x(t)=e^{t(1+2j{\pi})}u(-t)$$ and $$y(t)=Re\{2x(\frac{-5-t}{2})\}$$"></p><!--/introduction--><p>(a) Use MATLAB to plot <img src="Problema_5_eq11242019465652312069.png" alt="$Re\{x(t)\}$">  versus  <img src="Problema_5_eq10279946400445480122.png" alt="$Im\{x(at)\}$"> for  <img src="Problema_5_eq09032857288741246617.png" alt="$a =0.5,1$">,  and <img src="Problema_5_eq17262503285923366262.png" alt="$2$"> and <img src="Problema_5_eq03513641592941023169.png" alt="$-10 \leq t \leq 10$">. How important is the scale factor a on the shape of the resulting figure?</p><p>Primero definimos las funciones <img src="Problema_5_eq14833433867325483769.png" alt="$x(t)$"> y <img src="Problema_5_eq10822186844117743572.png" alt="$y(t)$"></p><pre class="codeinput">x= @(t) exp((1+j*2*pi).*t).*heaviside(-t);
+Re= @(t) real(2.*x((-5-t)/2));
+t= linspace(-10,10,1000);
+</pre><p>(a) Graficando las componentes real e imaginaria de <img src="Problema_5_eq14833433867325483769.png" alt="$x(t)$"> para los valores de a establecidos</p><pre class="codeinput">Im= @(t) imag(x(t));
+
+<span class="comment">%Para a= 0.5</span>
+subplot(3,1,1)
+plot(Re(t),Im(0.5.*t),<span class="string">'b'</span>)
+grid <span class="string">on</span>
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+axis([-2 2.5 -1 0.75])
+xlabel(<span class="string">'$Re\{x(t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$Im\{x(0.5t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'Grafica 1'</span>)
+
+<span class="comment">% Para a= 1</span>
+subplot(3,1,2)
+plot(Re(t),Im(t),<span class="string">'r'</span>)
+grid <span class="string">on</span>
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+axis([-2 2.5 -1 0.75])
+xlabel(<span class="string">'$Re\{x(t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$Im\{x(t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'Grafica 2'</span>)
+
+<span class="comment">% Para a= 2</span>
+subplot(3,1,3)
+plot(Re(t),Im(2.*t),<span class="string">'g'</span>)
+grid <span class="string">on</span>
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+axis([-2 2.5 -1 0.75])
+xlabel(<span class="string">'$Re\{x(t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$Im\{x(2t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'Grafica 3'</span>)
+</pre><img vspace="5" hspace="5" src="Problema_5_01.png" alt=""> <p>(b) Graficando <img src="Problema_5_eq10822186844117743572.png" alt="$y(t)$"> en el intervalo <img src="Problema_5_eq03513641592941023169.png" alt="$-10 \leq t \leq 10$"></p><pre class="codeinput">figure
+plot(t,Re(t),<span class="string">'b'</span>)
+grid <span class="string">on</span>
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+axis([-12 12 -1.5 2])
+xlabel(<span class="string">'${t}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$y(t)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'$y(t)=Re\{2x(\frac{-5-t}{2})\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+</pre><img vspace="5" hspace="5" src="Problema_5_02.png" alt=""> <p>(c) Calculando la energ&iacute;a de la se&ntilde;al <img src="Problema_5_eq14833433867325483769.png" alt="$x(t)$"></p><pre class="codeinput">syms <span class="string">t</span>
+Ex=int((exp((1+j*2*pi).*t))^2,t,-inf,0)
+</pre><pre class="codeoutput"> 
+Ex =
+ 
+-1i/(2*(2*pi - 1i))
+ 
+</pre><p>(d) Calculando la energ&iacute;a de la se&ntilde;al <img src="Problema_5_eq10822186844117743572.png" alt="$y(t)$"></p><pre class="codeinput">syms <span class="string">t</span>
+Ey=int((real(2.*x((-5-t)/2))).^2,t,-10,inf)
+</pre><pre class="codeoutput"> 
+Ey =
+ 
+2/(4*pi^2 + 1) + 2
+ 
+</pre><p>(e) La gr&aacute;fica de <img src="Problema_5_eq14833433867325483769.png" alt="$x(t)$"> para <img src="Problema_5_eq03513641592941023169.png" alt="$-10 \leq t \leq 10$"> es</p><pre class="codeinput">t=linspace(-10,10,1000);
+plot3(t,real(x(t)),Im(t),<span class="string">'r'</span>)
+grid <span class="string">on</span>
+plano = gca;
+plano.XAxisLocation = <span class="string">"origin"</span>;
+plano.YAxisLocation = <span class="string">"origin"</span>;
+xlabel(<span class="string">'${t}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+ylabel(<span class="string">'$Re\{x(t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+zlabel(<span class="string">'$Im\{x(t)\}$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+title(<span class="string">'$x(t)=e^{t(1+2j{\pi})}u(-t)$'</span>,<span class="string">'interpreter'</span>,<span class="string">'latex'</span>)
+</pre><img vspace="5" hspace="5" src="Problema_5_03.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Sección 5
+% 1.11-3 Define 
+% 
+% $$x(t)=e^{t(1+2j{\pi})}u(-t)$$ and $$y(t)=Re\{2x(\frac{-5-t}{2})\}$$
+%%
+% (a) Use MATLAB to plot $Re\{x(t)\}$  versus  $Im\{x(at)\}$ for  $a =0.5,1$,  and $2$ and $-10 \leq t \leq 10$. How important is the scale factor a on the shape of the resulting figure?
+%%
+% Primero definimos las funciones $x(t)$ y $y(t)$ 
+
+x= @(t) exp((1+j*2*pi).*t).*heaviside(-t);
+Re= @(t) real(2.*x((-5-t)/2));
+t= linspace(-10,10,1000);
+%%
+% (a) Graficando las componentes real e imaginaria de $x(t)$ para los valores
+% de a establecidos
+
+Im= @(t) imag(x(t));
+
+%Para a= 0.5
+subplot(3,1,1)
+plot(Re(t),Im(0.5.*t),'b')
+grid on
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+axis([-2 2.5 -1 0.75])
+xlabel('$Re\{x(t)\}$','interpreter','latex')
+ylabel('$Im\{x(0.5t)\}$','interpreter','latex')
+title('Grafica 1')
+
+% Para a= 1
+subplot(3,1,2)
+plot(Re(t),Im(t),'r')
+grid on
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+axis([-2 2.5 -1 0.75])
+xlabel('$Re\{x(t)\}$','interpreter','latex')
+ylabel('$Im\{x(t)\}$','interpreter','latex')
+title('Grafica 2')
+
+% Para a= 2
+subplot(3,1,3)
+plot(Re(t),Im(2.*t),'g')
+grid on
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+axis([-2 2.5 -1 0.75])
+xlabel('$Re\{x(t)\}$','interpreter','latex')
+ylabel('$Im\{x(2t)\}$','interpreter','latex')
+title('Grafica 3')
+%%
+% (b) Graficando $y(t)$ en el intervalo $-10 \leq t \leq 10$
+figure 
+plot(t,Re(t),'b')
+grid on
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+axis([-12 12 -1.5 2])
+xlabel('${t}$','interpreter','latex')
+ylabel('$y(t)$','interpreter','latex')
+title('$y(t)=Re\{2x(\frac{-5-t}{2})\}$','interpreter','latex')
+%%
+% (c) Calculando la energía de la señal $x(t)$
+syms t
+Ex=int((exp((1+j*2*pi).*t))^2,t,-inf,0)
+%%
+% (d) Calculando la energía de la señal $y(t)$ 
+syms t
+Ey=int((real(2.*x((-5-t)/2))).^2,t,-10,inf)
+%%
+% (e) La gráfica de $x(t)$ para $-10 \leq t \leq 10$ es
+t=linspace(-10,10,1000);
+plot3(t,real(x(t)),Im(t),'r')
+grid on
+plano = gca;
+plano.XAxisLocation = "origin";
+plano.YAxisLocation = "origin";
+xlabel('${t}$','interpreter','latex')
+ylabel('$Re\{x(t)\}$','interpreter','latex')
+zlabel('$Im\{x(t)\}$','interpreter','latex')
+title('$x(t)=e^{t(1+2j{\pi})}u(-t)$','interpreter','latex')
+##### SOURCE END #####
+--></body></html>
